@@ -1,41 +1,83 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    id(Plugins.androidLibrary)
+    id(Plugins.kotlinAndroid)
+
+    // Kapt
+    kotlin(Plugins.kapt)
+
+    // Hilt
+    id(Plugins.hilt)
 }
 
 android {
-    namespace 'com.geektech.presentation'
-    compileSdk 33
+    namespace = Config.Presentation.namespace
+    compileSdk = Config.targetAndCompileSdk
 
     defaultConfig {
-        minSdk 24
-        targetSdk 33
+        minSdk = Config.minSdk
+        targetSdk = Config.targetAndCompileSdk
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        testInstrumentationRunner = Config.testInstrumentationRunner
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = Config.jvmTarget
     }
 }
 
 dependencies {
+    // Core
+    implementation(Dependencies.Core.core)
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // AppCompat
+    implementation(Dependencies.UIComponents.appCompat)
+
+    // Material
+    implementation(Dependencies.UIComponents.material)
+
+    // ConstraintLayout
+    implementation(Dependencies.UIComponents.constraintLayout)
+
+    // NavComponents
+    implementation(Dependencies.NavComponents.navigationUI)
+    implementation(Dependencies.NavComponents.navigationFragment)
+
+    // Coil
+    implementation(Dependencies.Coil.coil)
+
+    // Lifecycle
+    implementation(Dependencies.Lifecycle.liveData)
+    implementation(Dependencies.Lifecycle.viewModel)
+    implementation(Dependencies.Lifecycle.viewModelCompose)
+
+    // ViewBindingPropertyDelegate
+    implementation(Dependencies.ViewBindingPropertyDelegate.viewBindingPropertyDelegate)
+
+    // Domain
+    implementation(project(":domain"))
+
+    // Hilt
+    implementation(Dependencies.Hilt.hilt)
+    kapt(Dependencies.Hilt.compiler)
+
+    // JUnit
+    testImplementation(Dependencies.Test.jUnit)
+    androidTestImplementation(Dependencies.Test.extJUnit)
+
+    // EspressoCore
+    androidTestImplementation(Dependencies.Test.espressoCore)
 }
