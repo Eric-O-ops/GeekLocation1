@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GeekLocation</string>
+    <string name="welcome_title">Добро пожаловать в GeekLocation </string>
+    <string name="google_title">Google</string>
 </resources>
