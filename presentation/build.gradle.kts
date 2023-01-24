@@ -7,6 +7,7 @@ plugins {
 
     // Hilt
     id(Plugins.hilt)
+    id(Plugins.mapsPlatform)
 }
 
 android {
@@ -36,6 +37,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = Config.jvmTarget
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -80,4 +84,6 @@ dependencies {
 
     // EspressoCore
     androidTestImplementation(Dependencies.Test.espressoCore)
+
+    implementation(Dependencies.Maps.playServicesMaps)
 }
