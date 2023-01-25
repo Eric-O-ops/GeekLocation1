@@ -5,6 +5,7 @@ object Version {
     const val navigation = "2.5.3"
     const val room = "2.4.3"
     const val kotlinAndroid = "1.7.21"
+    const val mapsPlatform = "2.0.1"
 }
 
 object Plugins {
@@ -15,6 +16,7 @@ object Plugins {
     const val androidLibrary = "com.android.library"
     const val kotlinJVM = "org.jetbrains.kotlin.jvm"
     const val javaLibrary = "java-library"
+    const val mapsPlatform = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin"
 }
 
 object Dependencies {
@@ -89,5 +91,9 @@ object Dependencies {
         const val jUnit = "junit:junit:4.13.2"
         const val extJUnit = "androidx.test.ext:junit:1.1.3"
         const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
+    }
+
+    object Maps {
+        const val playServicesMaps = "com.google.android.gms:play-services-maps:18.1.0"
     }
 }

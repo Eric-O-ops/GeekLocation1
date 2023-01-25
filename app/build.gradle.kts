@@ -7,6 +7,7 @@ plugins {
 
     // Hilt
     id(Plugins.hilt)
+    id(Plugins.mapsPlatform)
 }
 
 android {
@@ -64,4 +65,7 @@ dependencies {
 
     // Presentation
     implementation(project(":presentation"))
+
+    // PlayServicesMaps
+    implementation(Dependencies.Maps.playServicesMaps)
 }

@@ -7,4 +7,7 @@ plugins {
 
     // Hilt
     id(Plugins.hilt) version Version.hilt apply false
+
+    // MapsPlatform
+    id(Plugins.mapsPlatform) version Version.mapsPlatform apply false
 }

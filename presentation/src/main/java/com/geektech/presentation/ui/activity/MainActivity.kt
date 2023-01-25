@@ -1,8 +1,9 @@
-package com.geektech.presentation.activity
+package com.geektech.presentation.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.geektech.presentation.R
+import com.geektech.presentation.ui.fragments.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
