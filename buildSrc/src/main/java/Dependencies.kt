@@ -2,9 +2,10 @@ object Version {
     const val applicationAndKotlinAndroid = "7.4.0"
     const val lifecycle = "2.5.1"
     const val hilt = "2.44"
-    const val navigation = "2.5.3"
+    const val navigation = "2.5.2"
     const val room = "2.4.3"
-    const val kotlinAndroid = "1.7.21"
+    const val kotlinAndroid = "1.8.0"
+    const val hiltKtx = "1.9.0"
 }
 
 object Plugins {
@@ -60,6 +61,7 @@ object Dependencies {
     }
 
     object Hilt {
+        const val hiltKtx = "androidx.core:core-ktx:${Version.hiltKtx}"
         const val hilt = "com.google.dagger:hilt-android:${Version.hilt}"
         const val compiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
     }

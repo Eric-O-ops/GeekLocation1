@@ -53,6 +53,7 @@ dependencies {
 
     // Room
     implementation(Dependencies.Room.roomRuntime)
+    implementation("androidx.core:core-ktx:+")
     kapt(Dependencies.Room.roomCompiler)
 
     // GsonConverter

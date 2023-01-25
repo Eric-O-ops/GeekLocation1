@@ -15,6 +15,7 @@ android {
 
     defaultConfig {
         minSdk = Config.minSdk
+        @Suppress("UnstableApiUsage")
         targetSdk = Config.targetAndCompileSdk
 
         testInstrumentationRunner = Config.testInstrumentationRunner
@@ -23,8 +24,10 @@ android {
 
     buildTypes {
         release {
+            @Suppress("UnstableApiUsage")
             isMinifyEnabled = false
             proguardFiles(
+                @Suppress("UnstableApiUsage")
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
@@ -37,6 +40,9 @@ android {
     kotlinOptions {
         jvmTarget = Config.jvmTarget
     }
+
+    @Suppress("UnstableApiUsage")
+    buildFeatures.viewBinding = true
 }
 
 dependencies {
@@ -72,6 +78,7 @@ dependencies {
 
     // Hilt
     implementation(Dependencies.Hilt.hilt)
+    implementation(Dependencies.Hilt.hiltKtx)
     kapt(Dependencies.Hilt.compiler)
 
     // JUnit
