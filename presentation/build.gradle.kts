@@ -7,6 +7,7 @@ plugins {
 
     // Hilt
     id(Plugins.hilt)
+    id(Plugins.mapsPlatform)
 }
 
 android {
@@ -15,7 +16,6 @@ android {
 
     defaultConfig {
         minSdk = Config.minSdk
-        @Suppress("UnstableApiUsage")
         targetSdk = Config.targetAndCompileSdk
 
         testInstrumentationRunner = Config.testInstrumentationRunner
@@ -24,25 +24,26 @@ android {
 
     buildTypes {
         release {
-            @Suppress("UnstableApiUsage")
             isMinifyEnabled = false
             proguardFiles(
-                @Suppress("UnstableApiUsage")
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
     }
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = Config.jvmTarget
     }
 
-    @Suppress("UnstableApiUsage")
-    buildFeatures.viewBinding = true
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -78,7 +79,6 @@ dependencies {
 
     // Hilt
     implementation(Dependencies.Hilt.hilt)
-    implementation(Dependencies.Hilt.hiltKtx)
     kapt(Dependencies.Hilt.compiler)
 
     // JUnit
@@ -87,4 +87,6 @@ dependencies {
 
     // EspressoCore
     androidTestImplementation(Dependencies.Test.espressoCore)
+
+    implementation(Dependencies.Maps.playServicesMaps)
 }

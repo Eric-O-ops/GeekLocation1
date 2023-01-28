@@ -45,7 +45,7 @@ dependencies {
 
     // Core
     implementation(Dependencies.Core.core)
-    implementation("androidx.core:core-ktx:+")
+    implementation("androidx.core:core-ktx:1.9.0")
 
     // JUnit
     testImplementation(Dependencies.Test.jUnit)
