@@ -1,4 +1,4 @@
-package com.geektech.presentation.ui.fragments
+package com.geektech.presentation.ui.fragments.home
 
 import androidx.lifecycle.ViewModel
 
