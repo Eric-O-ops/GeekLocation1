@@ -96,4 +96,8 @@ object Dependencies {
     object Maps {
         const val playServicesMaps = "com.google.android.gms:play-services-maps:18.1.0"
     }
+
+    object Location {
+        const val locationService = "com.google.android.gms:play-services-location:21.0.1"
+    }
 }

@@ -7,6 +7,8 @@ plugins {
 
     // Hilt
     id(Plugins.hilt)
+
+    // Maps Platform
     id(Plugins.mapsPlatform)
 }
 
@@ -85,5 +87,9 @@ dependencies {
     // EspressoCore
     androidTestImplementation(Dependencies.Test.espressoCore)
 
+    // PlayServicesMaps
     implementation(Dependencies.Maps.playServicesMaps)
+
+    // LocationService
+    implementation(Dependencies.Location.locationService)
 }
