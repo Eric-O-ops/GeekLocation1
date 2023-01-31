@@ -1,6 +1,6 @@
 plugins {
-    id (Plugins.javaLibrary)
-    id (Plugins.kotlinJVM)
+    id(Plugins.javaLibrary)
+    id(Plugins.kotlinJVM)
 }
 
 java {
@@ -17,4 +17,7 @@ dependencies {
     api(Dependencies.Coroutines.coroutineCore)
     api(Dependencies.Coroutines.coroutineCoreJVM)
     api(Dependencies.Coroutines.coroutineAndroid)
+
+    // Common
+    api(project(":common"))
 }
