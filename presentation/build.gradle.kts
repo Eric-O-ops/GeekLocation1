@@ -8,6 +8,7 @@ plugins {
     // Hilt
     id(Plugins.hilt)
     id(Plugins.mapsPlatform)
+    id(Plugins.googleServices)
 }
 
 android {
@@ -89,4 +90,9 @@ dependencies {
     androidTestImplementation(Dependencies.Test.espressoCore)
 
     implementation(Dependencies.Maps.playServicesMaps)
+
+    // Sign with google
+    implementation (Dependencies.GoogleServices.googleAuthServies)
+
+    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
 }

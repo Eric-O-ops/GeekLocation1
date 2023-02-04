@@ -73,4 +73,6 @@ dependencies {
 
     // EspressoCore
     androidTestImplementation(Dependencies.Test.espressoCore)
+
+    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
 }

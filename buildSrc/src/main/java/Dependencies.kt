@@ -7,6 +7,8 @@ object Version {
     const val kotlinAndroid = "1.8.0"
     const val hiltKtx = "1.9.0"
     const val mapsPlatform = "2.0.1"
+    const val googleAuthServies = "20.4.1"
+    const val firebaseAuth = "21.1.0"
 }
 
 object Plugins {
@@ -18,12 +20,13 @@ object Plugins {
     const val androidLibrary = "com.android.library"
     const val kotlinJVM = "org.jetbrains.kotlin.jvm"
     const val javaLibrary = "java-library"
+    const val googleServices = "com.google.gms.google-services"
 }
 
 object Dependencies {
 
     object Core {
-        const val core = "androidx.core:core-ktx:1.7.0"
+        const val core = "androidx.core:core-ktx:1.9.0"
     }
 
     object UIComponents {
@@ -97,5 +100,14 @@ object Dependencies {
 
     object Maps {
         const val playServicesMaps = "com.google.android.gms:play-services-maps:18.1.0"
+    }
+
+    object GoogleServices {
+        const val googleAuthServies =
+            "com.google.android.gms:play-services-auth:${Version.googleAuthServies}"
+    }
+
+    object Firebase {
+        const val auth = "com.google.firebase:firebase-auth-ktx:${Version.firebaseAuth}"
     }
 }
