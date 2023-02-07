@@ -30,16 +30,21 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-                    viewModel.signInWithGoogle(task.result.idToken!!,
-                        onSuccess = {
-                            findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
-                        },
-                        onError = {
-                            Toast.makeText(
-                                requireContext(),
-                                "something was wrong", Toast.LENGTH_SHORT
-                            ).show()
-                        })
+                    viewModel.apply {
+                        signInWithGoogle(task.result.idToken!!,
+                            onSuccess = {
+                                findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+
+                            },
+                            onError = {
+                                Toast.makeText(
+                                    requireContext(),
+                                    "something was wrong", Toast.LENGTH_SHORT
+                                ).show()
+                            })
+
+                        saveUserData(binding.etInputName.text.toString())
+                    }
                 }
             }
 
