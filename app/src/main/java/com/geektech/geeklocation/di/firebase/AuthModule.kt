@@ -1,4 +1,4 @@
-package com.geektech.geeklocation.di
+package com.geektech.geeklocation.di.firebase
 
 import android.app.Application
 import com.geektech.geeklocation.R
@@ -17,6 +17,7 @@ import javax.inject.Singleton
 object AuthModule {
 
     @Provides
+    @Singleton
     fun provideFireBaseAuth() = Firebase.auth
 
     @Provides
