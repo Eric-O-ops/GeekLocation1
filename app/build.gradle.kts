@@ -76,4 +76,7 @@ dependencies {
     // Firebase auth
     implementation(Dependencies.Firebase.auth)
 
+    // Firebase firestore
+    implementation (Dependencies.Firebase.firestore)
+
 }

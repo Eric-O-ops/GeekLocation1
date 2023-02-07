@@ -94,5 +94,10 @@ dependencies {
     // Sign with google
     implementation (Dependencies.GoogleServices.googleAuthServies)
 
-    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
+    // Firebase auth
+    implementation(Dependencies.Firebase.auth)
+
+    // Firebase firestore
+    implementation (Dependencies.Firebase.firestore)
+
 }

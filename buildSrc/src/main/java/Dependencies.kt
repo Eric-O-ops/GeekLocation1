@@ -9,6 +9,7 @@ object Version {
     const val mapsPlatform = "2.0.1"
     const val googleAuthServies = "20.4.1"
     const val firebaseAuth = "21.1.0"
+    const val firestore = "24.4.2"
 }
 
 object Plugins {
@@ -109,5 +110,6 @@ object Dependencies {
 
     object Firebase {
         const val auth = "com.google.firebase:firebase-auth-ktx:${Version.firebaseAuth}"
+        const val firestore = "com.google.firebase:firebase-firestore-ktx:${Version.firestore}"
     }
 }

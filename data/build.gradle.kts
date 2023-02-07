@@ -53,7 +53,6 @@ dependencies {
 
     // Room
     implementation(Dependencies.Room.roomRuntime)
-    implementation("androidx.core:core-ktx:+")
     kapt(Dependencies.Room.roomCompiler)
 
     // GsonConverter
@@ -74,5 +73,10 @@ dependencies {
     // EspressoCore
     androidTestImplementation(Dependencies.Test.espressoCore)
 
-    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
+    // Firebase auth
+    implementation(Dependencies.Firebase.auth)
+
+    // Firebase firestore
+    implementation (Dependencies.Firebase.firestore)
+
 }
