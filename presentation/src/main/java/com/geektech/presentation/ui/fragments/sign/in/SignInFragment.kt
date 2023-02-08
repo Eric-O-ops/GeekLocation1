@@ -2,6 +2,7 @@ package com.geektech.presentation.ui.fragments.sign.`in`
 
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -9,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.geektech.domain.base.constansts.Constants
 import com.geektech.presentation.R
+import com.geektech.presentation.base.BaseFragment
 import com.geektech.presentation.databinding.FragmentSignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -17,37 +20,15 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SignInFragment : Fragment(R.layout.fragment_sign_in) {
+class SignInFragment :
+    BaseFragment<FragmentSignInBinding, SignInViewModel>(R.layout.fragment_sign_in) {
 
     @Inject
     lateinit var gsc: GoogleSignInClient
-    private val binding by viewBinding(FragmentSignInBinding::bind)
-    private val viewModel: SignInViewModel by viewModels()
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override val binding by viewBinding(FragmentSignInBinding::bind)
+    override val viewModel: SignInViewModel by viewModels()
 
-        val resultLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == Activity.RESULT_OK) {
-                    val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-                    viewModel.apply {
-                        signInWithGoogle(task.result.idToken!!,
-                            onSuccess = {
-                                findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
-
-                            },
-                            onError = {
-                                Toast.makeText(
-                                    requireContext(),
-                                    "something was wrong", Toast.LENGTH_SHORT
-                                ).show()
-                            })
-
-                        saveUserData(binding.etInputName.text.toString())
-                    }
-                }
-            }
-
+    override fun setupListener() {
         with(binding) {
             btnGoogle.setOnClickListener {
                 if (etInputName.text.isNotEmpty()) {
@@ -66,9 +47,34 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
                             0
                         )
                     }
-
                 }
             }
         }
     }
+
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                val token = task.result.idToken
+                if (token != null) {
+                    viewModel.apply {
+                        signInWithGoogle(token,
+                            onSuccess = {
+                                findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+                            },
+                            onError = {
+                                Toast.makeText(
+                                    requireContext(),
+                                    Constants.textError, Toast.LENGTH_SHORT
+                                ).show()
+                            })
+
+                        saveUserData(binding.etInputName.text.toString())
+                    }
+                } else {
+                    Log.e("TokenException", "No Token!")
+                }
+            }
+        }
 }

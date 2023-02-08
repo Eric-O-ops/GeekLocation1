@@ -1,8 +1,3 @@
-buildscript {
-    dependencies {
-        classpath("com.google.gms:google-services:4.3.15")
-    }
-}
 plugins {
     id(Plugins.application) version Version.applicationAndKotlinAndroid apply false
     id(Plugins.androidLibrary) version Version.applicationAndKotlinAndroid apply false
@@ -14,4 +9,7 @@ plugins {
 
     // MapsPlatform
     id(Plugins.mapsPlatform) version Version.mapsPlatform apply false
+
+    // Google services
+    id(Plugins.googleServices) version Version.googleServices apply false
 }

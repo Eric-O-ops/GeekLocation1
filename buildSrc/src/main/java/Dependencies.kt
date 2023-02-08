@@ -10,6 +10,7 @@ object Version {
     const val googleAuthServies = "20.4.1"
     const val firebaseAuth = "21.1.0"
     const val firestore = "24.4.2"
+    const val googleServices = "4.3.15"
 }
 
 object Plugins {
