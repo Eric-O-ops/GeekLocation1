@@ -7,7 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SignInViewModel @Inject constructor(
+class SigninViewModel @Inject constructor(
     private val signInUseCase: SignInWithGoogleUseCase,
     private val saveUserDataUseCase: SaveUserDataUseCase
 
