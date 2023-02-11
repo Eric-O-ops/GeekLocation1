@@ -2,10 +2,15 @@ object Version {
     const val applicationAndKotlinAndroid = "7.4.0"
     const val lifecycle = "2.5.1"
     const val hilt = "2.44"
-    const val navigation = "2.5.3"
+    const val navigation = "2.5.2"
     const val room = "2.4.3"
-    const val kotlinAndroid = "1.7.21"
+    const val kotlinAndroid = "1.8.0"
+    const val hiltKtx = "1.9.0"
     const val mapsPlatform = "2.0.1"
+    const val googleAuthServies = "20.4.1"
+    const val firebaseAuth = "21.1.0"
+    const val firestore = "24.4.2"
+    const val googleServices = "4.3.15"
 }
 
 object Plugins {
@@ -13,21 +18,22 @@ object Plugins {
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val hilt = "com.google.dagger.hilt.android"
     const val kapt = "kapt"
+    const val mapsPlatform = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin"
     const val androidLibrary = "com.android.library"
     const val kotlinJVM = "org.jetbrains.kotlin.jvm"
     const val javaLibrary = "java-library"
-    const val mapsPlatform = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin"
+    const val googleServices = "com.google.gms.google-services"
 }
 
 object Dependencies {
 
     object Core {
-        const val core = "androidx.core:core-ktx:1.7.0"
+        const val core = "androidx.core:core-ktx:1.9.0"
     }
 
     object UIComponents {
         const val appCompat = "androidx.appcompat:appcompat:1.5.1"
-        const val material = "com.google.android.material:material:1.7.0"
+        const val material = "com.google.android.material:material:1.8.0"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.4"
     }
 
@@ -62,6 +68,7 @@ object Dependencies {
     }
 
     object Hilt {
+        const val hiltKtx = "androidx.core:core-ktx:${Version.hiltKtx}"
         const val hilt = "com.google.dagger:hilt-android:${Version.hilt}"
         const val compiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
     }
@@ -95,5 +102,15 @@ object Dependencies {
 
     object Maps {
         const val playServicesMaps = "com.google.android.gms:play-services-maps:18.1.0"
+    }
+
+    object GoogleServices {
+        const val googleAuthServies =
+            "com.google.android.gms:play-services-auth:${Version.googleAuthServies}"
+    }
+
+    object Firebase {
+        const val auth = "com.google.firebase:firebase-auth-ktx:${Version.firebaseAuth}"
+        const val firestore = "com.google.firebase:firebase-firestore-ktx:${Version.firestore}"
     }
 }

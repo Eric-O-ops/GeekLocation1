@@ -72,4 +72,11 @@ dependencies {
 
     // EspressoCore
     androidTestImplementation(Dependencies.Test.espressoCore)
+
+    // Firebase auth
+    implementation(Dependencies.Firebase.auth)
+
+    // Firebase firestore
+    implementation (Dependencies.Firebase.firestore)
+
 }

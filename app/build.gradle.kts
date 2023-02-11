@@ -8,6 +8,7 @@ plugins {
     // Hilt
     id(Plugins.hilt)
     id(Plugins.mapsPlatform)
+    id(Plugins.googleServices)
 }
 
 android {
@@ -68,4 +69,14 @@ dependencies {
 
     // PlayServicesMaps
     implementation(Dependencies.Maps.playServicesMaps)
+
+    // Sign with google
+    implementation (Dependencies.GoogleServices.googleAuthServies)
+
+    // Firebase auth
+    implementation(Dependencies.Firebase.auth)
+
+    // Firebase firestore
+    implementation (Dependencies.Firebase.firestore)
+
 }

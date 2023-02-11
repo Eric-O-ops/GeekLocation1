@@ -31,13 +31,16 @@ android {
             )
         }
     }
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = Config.jvmTarget
     }
+
     buildFeatures {
         viewBinding = true
     }
@@ -86,4 +89,14 @@ dependencies {
     androidTestImplementation(Dependencies.Test.espressoCore)
 
     implementation(Dependencies.Maps.playServicesMaps)
+
+    // Sign with google
+    implementation (Dependencies.GoogleServices.googleAuthServies)
+
+    // Firebase auth
+    implementation(Dependencies.Firebase.auth)
+
+    // Firebase firestore
+    implementation (Dependencies.Firebase.firestore)
+
 }
