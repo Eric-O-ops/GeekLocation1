@@ -33,7 +33,7 @@ object Dependencies {
 
     object UIComponents {
         const val appCompat = "androidx.appcompat:appcompat:1.5.1"
-        const val material = "com.google.android.material:material:1.7.0"
+        const val material = "com.google.android.material:material:1.8.0"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.4"
     }
 
