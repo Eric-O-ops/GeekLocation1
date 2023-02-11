@@ -1,4 +1,4 @@
-package com.geektech.presentation.ui.fragments.sign.`in`
+package com.geektech.presentation.ui.fragments.signin
 
 import androidx.lifecycle.ViewModel
 import com.geektech.domain.usecases.SaveUserDataUseCase
@@ -7,7 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SigninViewModel @Inject constructor(
+class SignInViewModel @Inject constructor(
     private val signInUseCase: SignInWithGoogleUseCase,
     private val saveUserDataUseCase: SaveUserDataUseCase
 

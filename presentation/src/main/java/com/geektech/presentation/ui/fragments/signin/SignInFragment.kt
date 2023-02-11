@@ -1,4 +1,4 @@
-package com.geektech.presentation.ui.fragments.sign.`in`
+package com.geektech.presentation.ui.fragments.signin
 
 import android.app.Activity
 import android.util.Log
@@ -17,13 +17,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SigninFragment :
-    BaseFragment<FragmentSignInBinding, SigninViewModel>(R.layout.fragment_sign_in) {
+class SignInFragment :
+    BaseFragment<FragmentSignInBinding, SignInViewModel>(R.layout.fragment_sign_in) {
 
     @Inject
     lateinit var gsc: GoogleSignInClient
     override val binding by viewBinding(FragmentSignInBinding::bind)
-    override val viewModel: SigninViewModel by viewModels()
+    override val viewModel: SignInViewModel by viewModels()
 
     override fun setupListener() {
         with(binding) {
